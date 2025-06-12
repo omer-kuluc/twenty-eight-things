@@ -9,16 +9,17 @@ export default function MainPage() {
   const { data, setData } = useContext(DataContext);
 
   const introLines = [
-    "28, bilinen 51 mükemmel sayıdan biri.",
-    "Mükemmel sayı = Kendisi hariç, bölenlerinin toplamı kendisine eşit olan sayı",
+    "28 is one of the 51 known perfect numbers.",
+    "Perfect number = A number whose divisors (excluding itself) add up to the number itself",
   ];
 
   const explanationLines = [
-    "28'in 'mükemmel' olması için bu 5 sayıya da ihtiyacı var, tıpkı onların da'mükemmel' bir şeyi oluşturduklarının görülebilmesi için 28'e ihtiyaçları olduğu gibi..",
-    "Sayılar sadece birer sembol, hayatta önemsediğiniz herhangi bir şeyi sayılar yerine düşünebilirsiniz",
-    "'Mükemmel' olmasına katkı sağladığınız şeyler için değerinizin bilindiği, sizin 'mükemmel' olmanıza katkı sağlayan şeylerin kıymetini bildiğiniz bir hayat yaşamınız umuyorum",
-    "Çünkü insanlar unutabilir, umarım siz unutmazsınız.."
+    "For 28 to be 'perfect', it needs these 5 numbers — just as they need 28 to be seen as part of something 'perfect'..",
+    "Numbers are just symbols; you can think of anything you care about in life in place of numbers.",
+    "I hope you live a life where your contribution to something 'perfect' is valued, and you appreciate the things that contribute to your own 'perfection'.",
+    "Because people may forget — I hope you don’t.."
   ];
+
 
   const [currentLine, setCurrentLine] = useState(0);
   const [showAll, setShowAll] = useState(false);
