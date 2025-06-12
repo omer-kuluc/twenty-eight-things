@@ -7,11 +7,11 @@ export default function TypingLine({ text, onComplete, showCursor = true }) {
     if (visibleChars < text.length) {
       const timeout = setTimeout(() => {
         setVisibleChars((prev) => prev + 1);
-      }, 75);
+      }, 35);
       return () => clearTimeout(timeout);
     } else {
       if (onComplete) {
-        const delay = setTimeout(() => onComplete(), 1500); // Son satırda biraz bekletme
+        const delay = setTimeout(() => onComplete(), 1000); // Son satırda biraz bekletme
         return () => clearTimeout(delay);
       }
     }

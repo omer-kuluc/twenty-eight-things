@@ -57,6 +57,64 @@ h6 {
   isolation: isolate;
 }
 
+/*intro - start*/
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+  position: absolute;
+}
+
+.circle {
+  width: 180px;
+  height: 180px;
+  border: 6px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotateCircle 1.25s linear;
+  background-color: #111;
+}
+
+.countdown-number {
+  font-size: 1.6rem;
+  font-family: monospace;
+  color: white;
+}
+
+
+@keyframes fillCircle {
+  from {
+    stroke-dashoffset: 440;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes rotateCircle {
+  from {
+    transform: rotate(-180deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+
+
+
+/*intro - end*/
+
+
 .typing-line {
   font-family: monospace;
   white-space: pre-wrap;
@@ -96,6 +154,7 @@ a {
   color: white;
   min-height: 100vh;
 }
+
 
 .header-text {
   text-align: center;
@@ -150,6 +209,15 @@ a {
   flex-wrap: wrap;
   padding: 10px;
 }
+
+/* Yeni sınıf: eksik bölen varsa 28 sayısını soluk göster */
+.faded-28 {
+  opacity: 0.3;
+  filter: blur(1px);
+  transition: opacity 0.5s ease, filter 0.5s ease;
+}
+
+
 
 .other-pages-area {
   display: flex;
