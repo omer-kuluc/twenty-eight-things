@@ -1,0 +1,160 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.typing-line {
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: 0.7rem;
+  min-height: 1.4em;
+  line-height: 1.3em;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.blinking-placeholder {
+  visibility: hidden;
+  width: 1ch;
+  display: inline-block;
+}
+
+.main-page-container {
+  padding: 10px 15px;
+  background-color: #000;
+  color: white;
+  min-height: 100vh;
+}
+
+.header-text {
+  text-align: center;
+}
+
+.intro-text-section {
+  margin-block: 15px;
+}
+
+.result-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.divisor {
+  font-family: monospace;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 2px solid white;
+  color: white;
+  background-color: #222;
+  transition: background-color 0.5s ease;
+  margin-inline: auto;
+  width: 45px;
+  text-align: center;
+}
+
+.delayed-color {
+  background-color: #222;
+}
+
+/* Sarı (1,4,14) */
+.yellow-divisor {
+  background-color: #dbb125 !important;
+}
+
+/* Mavi (2,7) */
+.blue-divisor {
+  background-color: #8cb5d6 !important;
+}
+
+/* 28 → yeşil */
+.green-28 {
+  background-color: #088026 !important;
+}
+
+.divisors-list-horizontal {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.other-pages-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+}

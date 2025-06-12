@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Inception",
+    "release_date": "2010-07-16",
+    "type": "movie",
+    "age_rating": "PG-13",
+    "image": "https://image.tmdb.org/t/p/w1280/xn0Kcg4e6p0mLxVS3nAWhNmW2Ni.jpg",
+    "trending": true,
+    "trailer": "https://www.youtube.com/watch?v=YoHD9XEInc0"
+  },
+  {
+    "title": "Breaking Bad",
+    "release_date": "2008-01-20",
+    "type": "series",
+    "age_rating": "TV-MA",
+    "image": "https://image.tmdb.org/t/p/original/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
+    "trailer": "https://www.youtube.com/watch?v=HhesaQXLuRY"
+  }
+]
