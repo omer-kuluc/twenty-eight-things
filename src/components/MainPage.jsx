@@ -3,39 +3,34 @@ import { DataContext } from "../App";
 import Movies from "./Movies";
 import Songs from "./Songs";
 import TypingLine from "./TypingLine";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const perfectNumbers = ["33550336", "8128", "496", "28", "6"];
 
-function CountdownCircle({ onComplete }) {
-  const [index, setIndex] = useState(0);
-
+function CountdownCircle({ onComplete, finished }) {
   useEffect(() => {
-    if (index < perfectNumbers.length - 1) {
-      const timeout = setTimeout(() => {
-        setIndex(index + 1);
-      }, 1500);
-      return () => clearTimeout(timeout);
-    } else {
-      const finalDelay = setTimeout(() => {
-        onComplete();
-      }, 1500);
-      return () => clearTimeout(finalDelay);
-    }
-  }, [index, onComplete]);
+    const totalDuration = 4000;
+    const timer = setTimeout(() => {
+      onComplete();
+    }, totalDuration);
+
+    return () => clearTimeout(timer);
+  }, [onComplete]);
 
   return (
-    <div className="countdown-wrapper">
-      <motion.div
-        key={perfectNumbers[index]}
-        className="circle"
-        initial={{ rotate: -180, opacity: 0 }}
-        animate={{ rotate: 0, opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <span className="countdown-number">{perfectNumbers[index]}</span>
-      </motion.div>
+    <div className={`box ${finished ? "intro-finished" : ""}`}>
+      <div className="inner-box">
+        <div className="circle circle1"></div>
+        <div className="circle circle2"></div>
+        <div className="niddle"></div>
+        <div className="number">
+          <div>33550336</div>
+          <div>8128</div>
+          <div>496</div>
+          <div>28</div>
+          <div>6</div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -43,6 +38,7 @@ function CountdownCircle({ onComplete }) {
 export default function MainPage() {
   const { data } = useContext(DataContext);
   const [countdownFinished, setCountdownFinished] = useState(false);
+  const [introFadeOut, setIntroFadeOut] = useState(false);
 
   const introLines = [
     "28 is one of the 51 known perfect numbers.",
@@ -50,7 +46,7 @@ export default function MainPage() {
   ];
 
   const explanationLines = [
-    "For 28 to be 'perfect', it needs these 5 numbers — just as they need 28 to be seen as part of something 'perfect'..",
+    "For 28 to be 'perfect', it needs these 5 numbers just as they need 28 to be seen as part of something 'perfect'..",
     "Numbers are just symbols; you can think of anything you care about in life in place of numbers.",
     "Hope you live a life where your contribution to something 'perfect' is valued, and you appreciate the things that contribute to your own 'perfection'.",
     "’Cause people may forget. Hope you don’t.."
@@ -62,7 +58,6 @@ export default function MainPage() {
   const [animationStarted, setAnimationStarted] = useState(false);
   const [showExplanations, setShowExplanations] = useState(false);
   const [explanationStep, setExplanationStep] = useState(0);
-  const [activeDivisors, setActiveDivisors] = useState(["1", "2", "4", "7", "14"]);
 
   const handleComplete = () => {
     if (currentLine < introLines.length - 1) {
@@ -98,24 +93,38 @@ export default function MainPage() {
     }
   }, [showAll]);
 
-  const removeDivisor = (d) => {
-    setActiveDivisors((prev) => prev.filter((item) => item !== d));
-  };
-
-  const isMissingDivisor = activeDivisors.length < 5;
-
   return (
     <div className="main-page-container">
-      <h2 className="header-text">28 THINGS</h2>
+      <AnimatePresence>
+        {!countdownFinished && !introFadeOut && (
+          <motion.div
+            key="intro"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <CountdownCircle
+              onComplete={() => {
+                setTimeout(() => {
+                  setIntroFadeOut(true);
+                  setTimeout(() => setCountdownFinished(true), 300);
+                }, 0);
+              }}
+              finished={countdownFinished}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {!countdownFinished ? (
-        <CountdownCircle onComplete={() => {
-          setTimeout(() => {
-            setCountdownFinished(true);
-          }, 1250); // introdan sonra 3 saniye bekleme
-        }} />
-      ) : (
-        <div className="intro-text-section">
+      {countdownFinished && (
+        <motion.div
+          className="intro-text-section"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <h1 className="main-title">28 THINGS</h1>
+
           {introLines.map((line, i) =>
             i === currentLine ? (
               <TypingLine key={i} text={line} onComplete={handleComplete} showCursor={!showAll} />
@@ -127,7 +136,7 @@ export default function MainPage() {
           {showAll && (
             <div className="result-section">
               <motion.p
-                className={`divisor ${colorState.green ? "green-28" : "delayed-color"} ${isMissingDivisor ? "faded-28" : ""}`}
+                className={`divisor ${colorState.green ? "green-28" : "delayed-color"}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -137,8 +146,6 @@ export default function MainPage() {
 
               <div className="divisors-list-horizontal">
                 {["1", "2", "4", "7", "14"].map((d) => {
-                  if (!activeDivisors.includes(d)) return null;
-
                   let colorClass = "delayed-color";
                   if (["1", "4", "14"].includes(d) && colorState.yellow) {
                     colorClass = "yellow-divisor";
@@ -153,9 +160,6 @@ export default function MainPage() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.5 }}
-                      onClick={() => removeDivisor(d)}
-                      title="Click to remove"
-                      style={{ cursor: "pointer" }}
                     >
                       {d}
                     </motion.p>
@@ -170,7 +174,11 @@ export default function MainPage() {
                       <TypingLine
                         key={i}
                         text={line}
-                        onComplete={() => setExplanationStep((prev) => prev + 1)}
+                        onComplete={() =>
+                          setTimeout(() => {
+                            setExplanationStep((prev) => prev + 1);
+                          }, 300)
+                        }
                         showCursor={true}
                       />
                     ) : i < explanationStep ? (
@@ -181,17 +189,19 @@ export default function MainPage() {
               )}
             </div>
           )}
-        </div>
+        </motion.div>
       )}
 
-      <div className="other-pages-area">
-        <a href="#/movies">
-          <Movies />
-        </a>
-        <a href="#/songs">
-          <Songs />
-        </a>
-      </div>
+      {(showAll && explanationStep === explanationLines.length) && (
+        <div className="other-pages-area">
+          <a href="#/movies">
+            <Movies />
+          </a>
+          <a href="#/songs">
+            <Songs />
+          </a>
+        </div>
+      )}
     </div>
   );
 }

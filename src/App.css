@@ -58,56 +58,151 @@ h6 {
 }
 
 /*intro - start*/
-.countdown-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60vh;
+.box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(#fff, #757575);
+  overflow: hidden;
+
 }
 
-.progress-ring {
-  transform: rotate(-90deg);
+.box::before {
+  content: '';
   position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #e9d5d5;
+  transform: translateY((-50%));
+}
+
+.box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 5px;
+  height: 100%;
+  background-color: #b6a8a8;
+  transform: translateX((-50%));
+}
+
+.inner-box {
+  max-width: 370px;
+  margin-inline: auto;
+  position: relative;
 }
 
 .circle {
-  width: 180px;
-  height: 180px;
-  border: 6px solid white;
+  position: absolute;
+  top: 200px;
+  left: 70px;
+  transform: translate((-50%), -50%);
+  width: 250px;
+  height: 250px;
+  border: 5px solid #fff;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: rotateCircle 1.25s linear;
-  background-color: #111;
+  z-index: 1;
 }
 
-.countdown-number {
-  font-size: 1.6rem;
-  font-family: monospace;
-  color: white;
+.circle.circle2 {
+  top: 175px;
+  left: 45px;
+  position: absolute;
+  width: 300px;
+  height: 300px;
 }
 
-
-@keyframes fillCircle {
-  from {
-    stroke-dashoffset: 440;
-  }
-
-  to {
-    stroke-dashoffset: 0;
-  }
+.niddle {
+  position: absolute;
+  top: 332px;
+  left: 50%;
+  height: 4px;
+  width: 1200px;
+  background: #000;
+  animation: rolling 1s linear infinite;
+  transform-origin: left;
 }
 
-@keyframes rotateCircle {
-  from {
-    transform: rotate(-180deg);
-  }
+.intro-finished .niddle {
+  animation: none;
+}
 
-  to {
+@keyframes rolling {
+  0% {
     transform: rotate(0deg);
   }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
+
+.number {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  div {
+    position: absolute;
+    top: 335px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 85px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: animateNumber 5s linear infinite;
+    color: #000;
+    z-index: 2;
+  }
+}
+
+@keyframes animateNumber {
+
+  0%,
+  20% {
+    opacity: 1;
+  }
+
+  20.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.number div:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.number div:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.number div:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.number div:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.number div:nth-child(5) {
+  animation-delay: 4s;
+}
+
+/* Durdurma: countdownFinished sonrası */
+.intro-finished .number div {
+  animation: none;
+  opacity: 0;
+}
+
+
 
 
 
@@ -149,24 +244,30 @@ a {
 }
 
 .main-page-container {
-  padding: 10px 15px;
   background-color: #000;
   color: white;
   min-height: 100vh;
+  padding: 0;
+  overflow: hidden;
 }
 
-
-.header-text {
+.main-title {
+  font-size: 3rem;
+  font-weight: bold;
   text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  font-family: monospace;
 }
+
 
 .intro-text-section {
-  margin-block: 15px;
+  padding: 10px 25px;
 }
 
 .result-section {
   text-align: center;
-  margin-top: 30px;
+  margin-block: 10px;
 }
 
 .divisor {
@@ -208,6 +309,7 @@ a {
   gap: 20px;
   flex-wrap: wrap;
   padding: 10px;
+  margin-block: 10px;
 }
 
 /* Yeni sınıf: eksik bölen varsa 28 sayısını soluk göster */
@@ -216,6 +318,7 @@ a {
   filter: blur(1px);
   transition: opacity 0.5s ease, filter 0.5s ease;
 }
+
 
 
 
