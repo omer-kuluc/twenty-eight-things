@@ -329,3 +329,34 @@ a {
   gap: 10px;
   margin-top: 40px;
 }
+
+.other-pages-area h2 {
+  font-size: 1.5em;
+  color: #222;
+  position: relative;
+}
+
+.other-pages-area h2::before {
+  content: attr(data-text);
+  position: absolute;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 5px solid #fff;
+  animation: continue 3.5s linear infinite;
+  filter: drop-shadow(0 0 15px #fff) drop-shadow(0 0 10px #fff);
+}
+
+@keyframes continue {
+
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+
+  70%,
+  90% {
+    width: 100%;
+  }
+}

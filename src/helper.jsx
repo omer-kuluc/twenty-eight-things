@@ -1,6 +1,5 @@
 import MainPage from './components/MainPage'
 import Movies from './components/Movies'
-import Songs from './components/Songs'
 import React from 'react'
 
 const routers = [
@@ -12,10 +11,7 @@ const routers = [
     url: '/movies',
     component: <Movies />
   },
-  {
-    url: '/songs',
-    component: <Songs />
-  },
+
 ]
 
 export function getPage(url) {

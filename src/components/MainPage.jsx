@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { DataContext } from "../App";
 import Movies from "./Movies";
-import Songs from "./Songs";
 import TypingLine from "./TypingLine";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -107,7 +106,7 @@ export default function MainPage() {
               onComplete={() => {
                 setTimeout(() => {
                   setIntroFadeOut(true);
-                  setTimeout(() => setCountdownFinished(true), 300);
+                  setTimeout(() => setCountdownFinished(true), 350);
                 }, 0);
               }}
               finished={countdownFinished}
@@ -195,10 +194,7 @@ export default function MainPage() {
       {(showAll && explanationStep === explanationLines.length) && (
         <div className="other-pages-area">
           <a href="#/movies">
-            <Movies />
-          </a>
-          <a href="#/songs">
-            <Songs />
+            <h2 data-text="&nbsp; Continue &nbsp;">&nbsp; Continue &nbsp;</h2>
           </a>
         </div>
       )}
