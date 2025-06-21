@@ -360,3 +360,113 @@ a {
     width: 100%;
   }
 }
+
+/*show-style-page-start*/
+.show-style-container {
+  display: flex;
+  justify-content: center;
+
+}
+
+
+
+/*show-style-page-end*/
+
+/*gallery-mobile-start*/
+
+.gallery-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Kart genişliği 280px ve üstü */
+  gap: 10px;
+  padding: 10px 7px;
+}
+
+
+.gallery-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 15px;
+  border: 2px solid red;
+  padding: 5px 10px;
+  text-align: left;
+  background-color: #222;
+  color: #fff;
+  height: 500px;
+  position: relative;
+}
+
+
+
+.gallery-card-lyric,
+.gallery-card-line {
+  font-weight: bold;
+}
+
+
+.has-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+}
+
+/*benjamin-button-clock-start*/
+.benjamin-button-clock {
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: #2f363e;
+  box-shadow: 10px 50px 70px rgba(0, 0, 0, 0.20);
+  inset: 5px 5px 10px rgba (0, 0, 0, 0.25);
+  inset: 5px 5px 20px rgba (0, 0, 0, 0.25);
+  inset: -5px -5px 15px rgba (0, 0, 0, 0.75);
+}
+
+.benjamin-button-clock::before {
+  content: '';
+  position: absolute;
+  top: 41%;
+  left: 40%;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(214, 203, 52);
+  border: 5px solid yellow;
+  border-radius: 50%;
+}
+
+.benjamin-button-clock span {
+  position: absolute;
+  inset: 20px;
+  top: 1%;
+  left: 6%;
+  color: #fff;
+  text-align: center;
+  transform: rotate(calc(30deg * var(--i)));
+}
+
+.benjamin-button-clock span b {
+  font-size: 1.2em;
+  display: inline-block;
+  transform: rotate(calc(-30deg * var(--i)));
+
+}
+
+/*benjamin-button-clock-end*/
+
+
+
+/*gallery-mobile-end*/
+
+
+@media (width > 768px) {
+  .gallery-card-container {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+  }
+}

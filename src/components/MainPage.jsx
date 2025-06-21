@@ -1,8 +1,11 @@
+// src/components/MainPage.jsx
+
 import React, { useState, useEffect, useContext } from "react";
 import { DataContext } from "../App";
 import Movies from "./Movies";
 import TypingLine from "./TypingLine";
 import { motion, AnimatePresence } from "framer-motion";
+import useTypingLines from "./UseTypingLine";
 
 const perfectNumbers = ["33550336", "8128", "496", "28", "6"];
 
@@ -12,7 +15,6 @@ function CountdownCircle({ onComplete, finished }) {
     const timer = setTimeout(() => {
       onComplete();
     }, totalDuration);
-
     return () => clearTimeout(timer);
   }, [onComplete]);
 
@@ -51,20 +53,16 @@ export default function MainPage() {
     "’Cause people may forget. Hope you don’t.."
   ];
 
-  const [currentLine, setCurrentLine] = useState(0);
-  const [showAll, setShowAll] = useState(false);
+  const {
+    currentLine,
+    handleComplete,
+    showAll
+  } = useTypingLines(introLines);
+
   const [colorState, setColorState] = useState({ yellow: false, blue: false, green: false });
   const [animationStarted, setAnimationStarted] = useState(false);
   const [showExplanations, setShowExplanations] = useState(false);
   const [explanationStep, setExplanationStep] = useState(0);
-
-  const handleComplete = () => {
-    if (currentLine < introLines.length - 1) {
-      setCurrentLine((prev) => prev + 1);
-    } else {
-      setShowAll(true);
-    }
-  };
 
   useEffect(() => {
     if (showAll) {
@@ -193,7 +191,7 @@ export default function MainPage() {
 
       {(showAll && explanationStep === explanationLines.length) && (
         <div className="other-pages-area">
-          <a href="#/movies">
+          <a href="#/view-choice">
             <h2 data-text="&nbsp; Continue &nbsp;">&nbsp; Continue &nbsp;</h2>
           </a>
         </div>

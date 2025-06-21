@@ -1,5 +1,8 @@
+import Gallery from './components/Gallery'
 import MainPage from './components/MainPage'
 import Movies from './components/Movies'
+import Slider from './components/Slider'
+import ViewChoice from './components/ViewChoice'
 import React from 'react'
 
 const routers = [
@@ -11,6 +14,19 @@ const routers = [
     url: '/movies',
     component: <Movies />
   },
+  {
+    url: '/view-choice',
+    component: <ViewChoice />
+  },
+  {
+    url: '/gallery',
+    component: <Gallery />
+  },
+
+  {
+    url: '/slider',
+    component: <Slider />
+  }
 
 ]
 

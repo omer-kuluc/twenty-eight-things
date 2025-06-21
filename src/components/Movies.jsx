@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { DataContext } from "../App"
 import React from 'react'
+import Gallery from "./Gallery";
 
 export default function Movies() {
 
@@ -8,6 +9,9 @@ export default function Movies() {
 
 
   return (
-    <div>Continue</div>
+    <div className="show-style-container">
+      <button onClick={() => window.location.hash = "#/gallery"}>Gallery</button>
+      <button>Card</button>
+    </div>
   )
 }

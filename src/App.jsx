@@ -5,29 +5,34 @@ import React from 'react'
 
 export const DataContext = createContext(null);
 
-
 function App() {
-
   const [data, setData] = useState([]);
   const [route, setRoute] = useState(location.hash.substring(1) || '/');
+
   useEffect(() => {
     async function getData() {
       const data = await fetch('/data/data.json').then(x => x.json());
       setData(data);
     }
     getData();
+  }, []);
 
-    window.addEventListener('hashchange', (e) => setRoute(location.hash.substring(1) || '/'));
+  useEffect(() => {
+    function handleHashChange() {
+      const current = location.hash.substring(1) || '/';
+      console.log("Current route:", current); // buraya bak
+      setRoute(current);
+    }
 
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   return (
-    <>
-      <DataContext.Provider value={{ data, setData }}>
-        {getPage(route)}
-      </DataContext.Provider>
-    </>
-  )
+    <DataContext.Provider value={{ data, setData }}>
+      {getPage(route)}
+    </DataContext.Provider>
+  );
 }
 
-export default App
+export default App;

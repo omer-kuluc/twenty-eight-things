@@ -1,19 +1,261 @@
 [
   {
-    "title": "Inception",
-    "release_date": "2010-07-16",
-    "type": "movie",
-    "age_rating": "PG-13",
-    "image": "https://image.tmdb.org/t/p/w1280/xn0Kcg4e6p0mLxVS3nAWhNmW2Ni.jpg",
-    "trending": true,
-    "trailer": "https://www.youtube.com/watch?v=YoHD9XEInc0"
+    "id": 1,
+    "title": "Wonderwall",
+    "singer": "Oasis",
+    "type": "song",
+    "release-date": "1995",
+    "lyric": "And all the roads we have to walk are winding\nAnd all the lights that lead us there are blinding\nThere are many things that I would like to say to you\nBut I don't know how",
+    "image": "/data/img/wonderwall.jpg"
   },
   {
-    "title": "Breaking Bad",
-    "release_date": "2008-01-20",
-    "type": "series",
-    "age_rating": "TV-MA",
-    "image": "https://image.tmdb.org/t/p/original/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
-    "trailer": "https://www.youtube.com/watch?v=HhesaQXLuRY"
+    "id": 2,
+    "title": "Forrest Gump",
+    "director": "Robert Zemeckis",
+    "stars": "Tom Hanks, Robin Wright, Gary Sinise",
+    "type": "movie",
+    "release-date": "1994",
+    "line": "Stupid is as stupid does.",
+    "image": "/data/img/forrest-gump.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Redemption Song",
+    "singer": "Bob Marley & The Wailers",
+    "type": "song",
+    "release-date": "1980",
+    "lyric": "Emancipate yourselves from mental slavery\nNone but ourselves can free our minds\nHave no fear for atomic energy\n'Cause none of them can stop the time",
+    "image": "/data/img/redemption-song.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Viva La Vida",
+    "singer": "Coldplay",
+    "type": "song",
+    "release-date": "2008",
+    "lyric": "One minute, I held the key\nNext the walls were closed on me\nAnd I discovered that my castles stand\nUpon pillars of salt and pillars of sand",
+    "image": "/data/img/viva-la-vida.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Network",
+    "director": "Sidney Lumet",
+    "stars": "Faye Dunaway, William Holden, Peter Finch",
+    "type": "movie",
+    "release-date": "1976",
+    "line": "We deal in illusions, man! None of it is true!\nBut you people sit there, day after day, night after night,\nall ages, colors, creeds... We're all you know.\nYou're beginning to believe the illusions we're spinning here.\nYou're beginning to think that the tube is reality,\nand that your own lives are unreal.",
+    "image": "/data/img/network.webp"
+  },
+  {
+    "id": 6,
+    "title": "Big Short",
+    "director": "Adam McKay",
+    "stars": "Christian Bale, Steve Carell, Ryan Gosling",
+    "type": "movie",
+    "release-date": "2015",
+    "line": "Look at his eyes, I'll give you a hint,\nhis name is Yang.\nHe won a national math competition in China!\nHe doesn't even speak English! Yeah I'm sure of the math.",
+    "image": "/data/img/big-short.jpg"
+  },
+  {
+    "id": 7,
+    "title": "The Curious Case of Benjamin Button",
+    "director": "David Fincher",
+    "stars": "Brad Pitt, Cate Blanchett, Tilda Swinton",
+    "type": "movie",
+    "release-date": "2008",
+    "line": "For what it's worth: it's never too late or, in my case, too early to be whoever you want to be",
+    "image": "/data/img/benjamin-button.png"
+  },
+  {
+    "id": 8,
+    "title": "The Bucket List",
+    "director": "Rob Reiner",
+    "stars": "Jack Nicholson, Morgan Freeman, Sean Hayes",
+    "type": "movie",
+    "release-date": "2007",
+    "line": "I know that when he died, his eyes were closed and his heart was open.\nAnd I'm pretty sure he was happy with his final resting place, because he was buried on the mountain.\nAnd that was against the law.",
+    "image": "/data/img/the-bucket-list.jpg"
+  },
+  {
+    "id": 9,
+    "title": "The Apartment",
+    "director": "Billy Wilder",
+    "stars": "Jack Lemmon, Shirley MacLaine, Fred MacMurray",
+    "type": "movie",
+    "release-date": "1960",
+    "line": "Ya know, I used to live like Robinson Crusoe; I mean, shipwrecked among 8 million people. And then one day I saw a footprint in the sand, and there you were.",
+    "image": "/data/img/the-apartment.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Goodbye Stranger",
+    "singer": "Supertramp",
+    "type": "song",
+    "release-date": "1979",
+    "lyric": "... it's been nice\nHope you find your paradise\nTried to see your point of view\nHope your dreams will all come true",
+    "image": "/data/img/goodbye-stranger.jpg"
+  },
+  {
+    "id": 11,
+    "title": "The Grand Budapest Hotel",
+    "director": "Wes Anderson",
+    "stars": "Ralph Fiennes, F.Murray Abraham, Mathieu Amalric",
+    "type": "movie",
+    "release-date": "2014",
+    "line": "You're looking so well, darling, you really are...\nThey've done a marvelous job.\nI don't know what sort of cream they've put on you down at the morgue,\nbut... I want some.",
+    "image": "/data/img/the-grand-budapest-hotel.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Good Will Hunting",
+    "director": "Gus Van Sant",
+    "stars": "Robin Williams, Matt Damon, Ben Affleck",
+    "type": "movie",
+    "release-date": "1997",
+    "line": "You presume to know everything about me because you saw a painting of mine, and you ripped my life apart.\nYou're an orphan right?\nYou think I know the first thing about how hard your life has been, how you feel, who you are, because I read Oliver Twist?\nDoes that encapsulate you?"
+  },
+  {
+    "id": 13,
+    "title": "Like a Rolling Stone",
+    "singer": "Bob Dylan",
+    "type": "song",
+    "release-date": "1965",
+    "lyric": "You used to ride on the chrome horse with your diplomat\nWho carried on his shoulder a Siamese cat\nAin’t it hard when you discover that\nHe really wasn’t where it’s at\nAfter he took from you everything he could steal"
+  },
+  {
+    "id": 14,
+    "title": "Hotel California",
+    "singer": "Eagles",
+    "type": "song",
+    "release-date": "1976",
+    "lyric": "Last thing I remember, I was running for the door\nI had to find the passage back to the place I was before\n'Relax,' said the night man, 'We are programmed to receive\nYou can check out any time you like, but you can never leave'",
+    "image": "/data/img/hotel-california.jpg"
+  },
+  {
+    "id": 15,
+    "title": "That's Life",
+    "singer": "Frank Sinatra",
+    "type": "song",
+    "release-date": "1966",
+    "lyric": "I've been up and down and over and out\nAnd I know one thing\nEach time I find myself layin' \nFlat on my face\nI just pick myself up and get\nBack in the race",
+    "image": "/data/img/thats-life.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Lego Movie",
+    "director": "Phil Lord",
+    "stars": "Chris Pratt, Will Ferrell, Elizabeth Banks",
+    "type": "movie",
+    "release-date": "2014",
+    "line": "If this relationship is going to work out between us I need to feel free to party with a bunch of strangers whenever I feel like it. I will text you.",
+    "image": "/data/img/lego-movie.jpg"
+  },
+  {
+    "id": 17,
+    "title": "Wish You Were Here",
+    "singer": "Pink Floyd",
+    "type": "song",
+    "release-date": "1975",
+    "lyric": "So, so you think you can tell heaven from hell, \nBlue skies from pain\nCan you tell a green field from a cold steel rail?\nA smile from a veil?\nDo you think you can tell?",
+    "image": "/data/img/wish-you-were-here.webp"
+  },
+  {
+    "id": 18,
+    "title": "More Than a Feeling",
+    "singer": "Boston",
+    "type": "song",
+    "release-date": "1976",
+    "lyric": "So many people have come and gone\nTheir faces fade as the years go by\nYet I still recall as I wander on\nAs clear as the sun in the summer sky",
+    "image": "/data/img/more-than-a-feeling.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Time to Pretend",
+    "singer": "MGMT",
+    "type": "song",
+    "release-date": "2007",
+    "lyric": "Yeah, it's overwhelming,\nbut what else can we do?\nGet jobs in offices\nand wake up for the morning commute?",
+    "image": "/data/img/time-to-pretend.jpg"
+  },
+  {
+    "id": 20,
+    "title": "To Kill a Mockingbird",
+    "director": "Robert Mulligan",
+    "stars": "Gregory Peck, John Megna, Frank Overton",
+    "type": "movie",
+    "release-date": "1962",
+    "line": "Neighbors bring food with death, and flowers with sickness, and little things in between. Boo was our neighbor. He gave us two soap dolls, a broken watch and chain, a knife, and our lives.",
+    "image": "/data/img/to-kill-a-mockingbird.jpg"
+  },
+  {
+    "id": 21,
+    "title": "Intouchables",
+    "director": "Olivier Nakache - Eric Toledano",
+    "stars": "François Cluzet, Omar Sy, Anne Le Ny",
+    "type": "movie",
+    "release-date": "2011",
+    "line": "Isn't it Tom and Jerry?",
+    "image": "/data/img/intouchables.webp"
+  },
+  {
+    "id": 22,
+    "title": "The Beatles",
+    "singer": "Yesterday",
+    "type": "song",
+    "release-date": "1965",
+    "lyric": "Yesterday all my troubles seemed so far away.\nNow it looks as though they're here to stay.\nOh, I believe in yesterday.\nSuddenly, I'm not half the man I used to be.\nThere's a shadow hanging over me.\nOh, yesterday came suddenly.",
+    "image": "/data/img/yesterday.jpg"
+  },
+  {
+    "id": 23,
+    "title": "The Show Must Go On",
+    "singer": "Queen",
+    "type": "song",
+    "release-date": "1991",
+    "lyric": "I'll face it with a grin\nI'm never giving in\nOn with the show\nI'll top the bill, I'll overkill\nI have to find the will to carry on"
+  },
+  {
+    "id": 24,
+    "title": "Big Fish",
+    "director": "Tim Burton",
+    "stars": "Ewan McGregor, Albert Finney, Billy Crudup",
+    "type": "movie",
+    "release-date": "2003",
+    "line": "They say when you meet the love of your life,\ntime stops, and that's true.\nWhat they don't tell you is that when it starts again,\nit moves extra fast to catch up.",
+    "image": "/data/img/big-fish.jpg"
+  },
+  {
+    "id": 25,
+    "title": "Tootsie",
+    "director": "Sydney Pollack",
+    "stars": "Dustin Hoffman, Jessica Lange, Teri Garr",
+    "type": "movie",
+    "release-date": "1982",
+    "line": "You were a tomato! A tomato doesn't have logic! A tomato can't move!"
+  },
+  {
+    "id": 26,
+    "title": "The Prestige",
+    "director": "Christopher Nolan",
+    "stars": "Christian Bale, Hugh Jackman, Scarlett Johansson",
+    "type": "movie",
+    "release-date": "2006",
+    "line": "The magician takes the ordinary something and makes it into something extraordinary. But you wouldn't clap yet, because making something disappear isn't enough. You have to bring it back. "
+  },
+  {
+    "id": 27,
+    "title": "Imagine",
+    "singer": "John Lennon",
+    "type": "song",
+    "release-date": "1971",
+    "lyric": "You may say I'm a dreamer\nBut I'm not the only one\nI hope someday you'll join us\nAnd the world will be as one"
+  },
+  {
+    "id": 28,
+    "title": "Feeling Good",
+    "singer": "Nina Simone (cover: Muse)",
+    "type": "song",
+    "release-date": "1965",
+    "lyric": "Butterflies all out having fun\nYou know what I mean\nSleep in peace when day is done\nAnd this old world is a new world\nAnd a bold world\nFor me"
   }
 ]
