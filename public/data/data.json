@@ -6,7 +6,7 @@
     "type": "song",
     "release-date": "1995",
     "lyric": "And all the roads we have to walk are winding\nAnd all the lights that lead us there are blinding\nThere are many things that I would like to say to you\nBut I don't know how",
-    "image": "/data/img/wonderwall.jpg"
+    "image": "/data/img/wonderwall.webp"
   },
   {
     "id": 2,
@@ -20,12 +20,12 @@
   },
   {
     "id": 3,
-    "title": "Redemption Song",
-    "singer": "Bob Marley & The Wailers",
+    "title": "Good Riddance(Time of Your Life)",
+    "singer": "Green Day",
     "type": "song",
-    "release-date": "1980",
-    "lyric": "Emancipate yourselves from mental slavery\nNone but ourselves can free our minds\nHave no fear for atomic energy\n'Cause none of them can stop the time",
-    "image": "/data/img/redemption-song.jpg"
+    "release-date": "1997",
+    "lyric": "So take the photographs and still frames in your mind\nHang it on a shelf in good health and good time\nTattoos of memories, and dead skin on trial\nFor what it's worth, it was worth all the while",
+    "image": "/data/img/good-riddance.webp"
   },
   {
     "id": 4,
@@ -73,7 +73,7 @@
     "stars": "Jack Nicholson, Morgan Freeman, Sean Hayes",
     "type": "movie",
     "release-date": "2007",
-    "line": "I know that when he died, his eyes were closed and his heart was open.\nAnd I'm pretty sure he was happy with his final resting place, because he was buried on the mountain.\nAnd that was against the law.",
+    "line": "Kopi Luwak is the world's most expensive coffee.",
     "image": "/data/img/the-bucket-list.jpg"
   },
   {
@@ -107,19 +107,20 @@
   },
   {
     "id": 12,
-    "title": "Good Will Hunting",
-    "director": "Gus Van Sant",
-    "stars": "Robin Williams, Matt Damon, Ben Affleck",
+    "title": "Inception",
+    "director": "Christopher Nolan",
+    "stars": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page",
     "type": "movie",
-    "release-date": "1997",
-    "line": "You presume to know everything about me because you saw a painting of mine, and you ripped my life apart.\nYou're an orphan right?\nYou think I know the first thing about how hard your life has been, how you feel, who you are, because I read Oliver Twist?\nDoes that encapsulate you?"
+    "release-date": "2010",
+    "line": "Once an idea has taken hold of the brain it's almost impossible to eradicate.\nAn idea that is fully formed - fully understood - that sticks; right in there somewhere.",
+    "image": "/data/img/Inception.jpg"
   },
   {
     "id": 13,
-    "title": "Like a Rolling Stone",
-    "singer": "Bob Dylan",
+    "title": "Feel Good Inc",
+    "singer": "Gorillaz",
     "type": "song",
-    "release-date": "1965",
+    "release-date": "2005",
     "lyric": "You used to ride on the chrome horse with your diplomat\nWho carried on his shoulder a Siamese cat\nAin’t it hard when you discover that\nHe really wasn’t where it’s at\nAfter he took from you everything he could steal"
   },
   {
@@ -157,7 +158,7 @@
     "type": "song",
     "release-date": "1975",
     "lyric": "So, so you think you can tell heaven from hell, \nBlue skies from pain\nCan you tell a green field from a cold steel rail?\nA smile from a veil?\nDo you think you can tell?",
-    "image": "/data/img/wish-you-were-here.webp"
+    "image": "/data/img/wish-you-were-here.jpg"
   },
   {
     "id": 18,
@@ -231,7 +232,8 @@
     "stars": "Dustin Hoffman, Jessica Lange, Teri Garr",
     "type": "movie",
     "release-date": "1982",
-    "line": "You were a tomato! A tomato doesn't have logic! A tomato can't move!"
+    "line": "You were a tomato! A tomato doesn't have logic! A tomato can't move!",
+    "image": "/data/img/tootsie.webp"
   },
   {
     "id": 26,
@@ -240,7 +242,8 @@
     "stars": "Christian Bale, Hugh Jackman, Scarlett Johansson",
     "type": "movie",
     "release-date": "2006",
-    "line": "The magician takes the ordinary something and makes it into something extraordinary. But you wouldn't clap yet, because making something disappear isn't enough. You have to bring it back. "
+    "line": "The magician takes the ordinary something and makes it into something extraordinary. But you wouldn't clap yet, because making something disappear isn't enough. You have to bring it back. ",
+    "image": "/data/img/the-prestige.webp"
   },
   {
     "id": 27,
@@ -248,7 +251,8 @@
     "singer": "John Lennon",
     "type": "song",
     "release-date": "1971",
-    "lyric": "You may say I'm a dreamer\nBut I'm not the only one\nI hope someday you'll join us\nAnd the world will be as one"
+    "lyric": "You may say I'm a dreamer\nBut I'm not the only one\nI hope someday you'll join us\nAnd the world will be as one",
+    "image": "/data/img/imagine.jpg"
   },
   {
     "id": 28,
@@ -256,6 +260,7 @@
     "singer": "Nina Simone (cover: Muse)",
     "type": "song",
     "release-date": "1965",
-    "lyric": "Butterflies all out having fun\nYou know what I mean\nSleep in peace when day is done\nAnd this old world is a new world\nAnd a bold world\nFor me"
+    "lyric": "Butterflies all out having fun\nYou know what I mean\nSleep in peace when day is done\nAnd this old world is a new world\nAnd a bold world\nFor me",
+    "image": "/data/img/feeling-good.jpg"
   }
 ]
