@@ -73,7 +73,7 @@
     "stars": "Jack Nicholson, Morgan Freeman, Sean Hayes",
     "type": "movie",
     "release-date": "2007",
-    "line": "Kopi Luwak is the world's most expensive coffee.",
+    "line": "The simplest thing is, I loved him and I miss him. Carter and I saw the world together. Which is amazing.\nWhen you think that only three months ago, we were complete strangers.",
     "image": "/data/img/the-bucket-list.jpg"
   },
   {
@@ -92,7 +92,7 @@
     "singer": "Supertramp",
     "type": "song",
     "release-date": "1979",
-    "lyric": "... it's been nice\nHope you find your paradise\nTried to see your point of view\nHope your dreams will all come true",
+    "lyric": "Goodbye stranger it's been nice\nHope you find your paradise\nTried to see your point of view\nHope your dreams will all come true",
     "image": "/data/img/goodbye-stranger.jpg"
   },
   {
@@ -149,7 +149,7 @@
     "stars": "Chris Pratt, Will Ferrell, Elizabeth Banks",
     "type": "movie",
     "release-date": "2014",
-    "line": "If this relationship is going to work out between us I need to feel free to party with a bunch of strangers whenever I feel like it. I will text you.",
+    "line": "If this relationship is going to work out between us I need to feel free to party with a bunch of strangers whenever I feel like it.\nI will text you.",
     "image": "/data/img/lego-movie.jpg"
   },
   {
@@ -210,12 +210,12 @@
   },
   {
     "id": 23,
-    "title": "Mr. Rager",
-    "singer": "Kid Cudi",
+    "title": "Don't Stop Me Now",
+    "singer": "Queen",
     "type": "song",
-    "release-date": "2010",
-    "lyric": "Knocked down, round for round\nYou're feeling like you're shot down on the ground\nWhen will the fantasy end?\nWhen will the heaven begin?",
-    "image": "/data/img/mr-rager.jpg"
+    "release-date": "1979",
+    "lyric": "I'm a shooting star, leaping through the sky\nLike a tiger defying the laws of gravity\nI'm a racing car, passing by like Lady Godiva\nI'm gonna go, go, go\nThere's no stopping me",
+    "image": "/data/img/dont-stop-me-now.jpg"
   },
   {
     "id": 24,
