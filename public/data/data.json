@@ -48,13 +48,13 @@
   },
   {
     "id": 6,
-    "title": "Big Short",
-    "director": "Adam McKay",
-    "stars": "Christian Bale, Steve Carell, Ryan Gosling",
+    "title": "Guardians of The Galaxy",
+    "director": "James Gunn",
+    "stars": "Chris Pratt, Vin Diesel, Bradley Cooper",
     "type": "movie",
-    "release-date": "2015",
-    "line": "Look at his eyes, I'll give you a hint,\nhis name is Yang.\nHe won a national math competition in China!\nHe doesn't even speak English! Yeah I'm sure of the math.",
-    "image": "/data/img/big-short.jpg"
+    "release-date": "2014",
+    "line": "We are Groot.",
+    "image": "/data/img/guardians-of-the-galaxy.jpg"
   },
   {
     "id": 7,
@@ -117,11 +117,12 @@
   },
   {
     "id": 13,
-    "title": "Feel Good Inc",
-    "singer": "Gorillaz",
+    "title": "Redemption Song",
+    "singer": "Bob Marley & The Wailers",
     "type": "song",
-    "release-date": "2005",
-    "lyric": "You used to ride on the chrome horse with your diplomat\nWho carried on his shoulder a Siamese cat\nAin’t it hard when you discover that\nHe really wasn’t where it’s at\nAfter he took from you everything he could steal"
+    "release-date": "1980",
+    "lyric": "Emancipate yourselves from mental slavery\nNone but ourselves can free our minds\nHave no fear for atomic energy\n'Cause none of them can stop the time",
+    "image": "/data/img/redemption-song.jpg"
   },
   {
     "id": 14,
@@ -129,7 +130,7 @@
     "singer": "Eagles",
     "type": "song",
     "release-date": "1976",
-    "lyric": "Last thing I remember, I was running for the door\nI had to find the passage back to the place I was before\n'Relax,' said the night man, 'We are programmed to receive\nYou can check out any time you like, but you can never leave'",
+    "lyric": "Last thing I remember, I was running for the door\nI had to find the passage back to the place I was before\n'Relax,' said the night man, 'We are programmed to receive\nYou can check out any time you like,  t you can never leave'",
     "image": "/data/img/hotel-california.jpg"
   },
   {
@@ -209,11 +210,12 @@
   },
   {
     "id": 23,
-    "title": "The Show Must Go On",
-    "singer": "Queen",
+    "title": "Mr. Rager",
+    "singer": "Kid Cudi",
     "type": "song",
-    "release-date": "1991",
-    "lyric": "I'll face it with a grin\nI'm never giving in\nOn with the show\nI'll top the bill, I'll overkill\nI have to find the will to carry on"
+    "release-date": "2010",
+    "lyric": "Knocked down, round for round\nYou're feeling like you're shot down on the ground\nWhen will the fantasy end?\nWhen will the heaven begin?",
+    "image": "/data/img/mr-rager.jpg"
   },
   {
     "id": 24,
