@@ -20,12 +20,12 @@
   },
   {
     "id": 3,
-    "title": "Good Riddance(Time of Your Life)",
-    "singer": "Green Day",
+    "title": "Redemption Song",
+    "singer": "Bob Marley & The Wailers",
     "type": "song",
-    "release-date": "1997",
-    "lyric": "So take the photographs and still frames in your mind\nHang it on a shelf in good health and good time\nTattoos of memories, and dead skin on trial\nFor what it's worth, it was worth all the while",
-    "image": "/data/img/good-riddance.webp"
+    "release-date": "1980",
+    "lyric": "Emancipate yourselves from mental slavery\nNone but ourselves can free our minds\nHave no fear for atomic energy\n'Cause none of them can stop the time",
+    "image": "/data/img/redemption-song.jpg"
   },
   {
     "id": 4,
@@ -117,12 +117,12 @@
   },
   {
     "id": 13,
-    "title": "Redemption Song",
-    "singer": "Bob Marley & The Wailers",
+    "title": "Good Riddance (Time of Your Life)",
+    "singer": "Green Day",
     "type": "song",
-    "release-date": "1980",
-    "lyric": "Emancipate yourselves from mental slavery\nNone but ourselves can free our minds\nHave no fear for atomic energy\n'Cause none of them can stop the time",
-    "image": "/data/img/redemption-song.jpg"
+    "release-date": "1997",
+    "lyric": "So take the photographs and still frames in your mind\nHang it on a shelf in good health and good time\nTattoos of memories, and dead skin on trial\nFor what it's worth, it was worth all the while",
+    "image": "/data/img/good-riddance.webp"
   },
   {
     "id": 14,
@@ -201,8 +201,8 @@
   },
   {
     "id": 22,
-    "title": "The Beatles",
-    "singer": "Yesterday",
+    "title": "Yesterday",
+    "singer": "The Beatles",
     "type": "song",
     "release-date": "1965",
     "lyric": "Yesterday all my troubles seemed so far away.\nNow it looks as though they're here to stay.\nOh, I believe in yesterday.\nSuddenly, I'm not half the man I used to be.\nThere's a shadow hanging over me.\nOh, yesterday came suddenly.",
