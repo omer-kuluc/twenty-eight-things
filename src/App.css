@@ -429,7 +429,22 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
+
+/*eklenen*/
+.slider-full-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(12px) brightness(0.35);
+  z-index: 0;
+  transition: background-image 0.6s ease;
+}
+
+/*eklenen*/
 
 .slider-track {
   position: relative;

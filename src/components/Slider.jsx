@@ -16,6 +16,14 @@ export default function Slider() {
 
   return (
     <div className="slider-wrapper">
+      {/* FULLSCREEN BACKGROUND IMAGE */}
+      <div
+        className="slider-full-bg"
+        style={{
+          backgroundImage: `url(${data[centerIndex].image})`
+        }}
+      ></div>
+
       <div className="slider-track">
         {data.map((item, index) => {
           const offset = index - centerIndex;
@@ -47,7 +55,6 @@ export default function Slider() {
                         </React.Fragment>
                       ))}
                     </blockquote>
-
                   </>
                 )}
                 {item.type === 'movie' && (
@@ -63,7 +70,6 @@ export default function Slider() {
                         </React.Fragment>
                       ))}
                     </blockquote>
-
                   </>
                 )}
               </div>
