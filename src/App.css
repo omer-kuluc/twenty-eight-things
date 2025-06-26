@@ -552,6 +552,115 @@ a {
 
 /*slider-mobile-end*/
 
+/*timeline-mobile-start*/
+
+.timeline-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.3);
+  z-index: 0;
+  transition: background-image 0.8s ease-in-out;
+}
+
+.timeline-overlay {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 800px;
+  text-align: center;
+}
+
+.timeline-year {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: #ffffffdd;
+  transition: all 0.4s ease;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}
+
+.timeline-meta {
+  font-style: italic;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.timeline-text {
+  white-space: pre-wrap;
+  line-height: 1.5;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.timeline-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.timeline-controls button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.timeline-controls button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.timeline-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/*timeline-mobile-end*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (width > 768px) {

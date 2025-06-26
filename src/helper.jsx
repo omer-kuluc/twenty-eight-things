@@ -2,6 +2,7 @@ import Gallery from './components/Gallery'
 import MainPage from './components/MainPage'
 import Movies from './components/Movies'
 import Slider from './components/Slider'
+import Timeline from './components/Timeline'
 import ViewChoice from './components/ViewChoice'
 import React from 'react'
 
@@ -26,6 +27,10 @@ const routers = [
   {
     url: '/slider',
     component: <Slider />
+  },
+  {
+    url: '/timeline',
+    component: <Timeline />
   }
 
 ]

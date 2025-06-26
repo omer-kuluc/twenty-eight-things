@@ -27,6 +27,8 @@ export default function ViewChoice() {
         <div className="view-buttons">
           <a href="#/gallery"><button>Gallery</button></a>
           <a href="#/slider"><button>Slider</button></a>
+          <a href="#/timeline"><button>Timeline</button></a>
+
         </div>
       )}
     </div>
