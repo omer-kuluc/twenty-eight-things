@@ -575,7 +575,7 @@ a {
   background-position: center;
   filter: brightness(0.3);
   z-index: 0;
-  transition: background-image 0.8s ease-in-out;
+  transition: background-image 0.6s ease-in-out;
 }
 
 .timeline-content {
@@ -586,7 +586,10 @@ a {
   margin: 0 auto;
   padding: 3rem 1rem;
   text-align: center;
-  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 70vh;
 }
 
 .timeline-year-slider {
@@ -595,8 +598,6 @@ a {
   margin-bottom: 2rem;
   overflow: hidden;
   z-index: 3;
-
-  /* 👈 bunu ekle */
 }
 
 .timeline-year {
@@ -607,12 +608,14 @@ a {
   white-space: nowrap;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
   text-align: center;
+  left: 50%;
 }
 
 .timeline-slide {
   position: relative;
   width: 100%;
   z-index: 3;
+  min-height: 250px;
 }
 
 .timeline-meta {

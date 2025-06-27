@@ -31,6 +31,8 @@ export default function Timeline() {
   const animateYears = (from, to, onComplete) => {
     clearInterval(intervalRef.current);
     const step = from < to ? 1 : -1;
+    const dir = from < to ? 1 : -1; // küçükten büyüğe sağa, büyükten küçüğe sola
+    setDirection(dir);
 
     if (from === to) {
       onComplete();
@@ -45,14 +47,13 @@ export default function Timeline() {
     let i = 0;
     intervalRef.current = setInterval(() => {
       if (i < years.length) {
-        setDirection(step);
         setYearDisplay(years[i]);
         i++;
       } else {
         clearInterval(intervalRef.current);
         onComplete();
       }
-    }, 50);
+    }, 20); // geçiş hızı
   };
 
   const handleNavigation = (newIndex) => {
@@ -74,7 +75,6 @@ export default function Timeline() {
 
   return (
     <div className="timeline-wrapper">
-      {/* BACKGROUND */}
       <AnimatePresence mode="wait">
         <motion.div
           key={current.image}
@@ -87,9 +87,7 @@ export default function Timeline() {
         />
       </AnimatePresence>
 
-      {/* OVERLAY */}
       <div className="timeline-content">
-        {/* YEAR SLIDER */}
         <div className="timeline-year-slider">
           <AnimatePresence mode="popLayout">
             {yearDisplay && (
@@ -107,7 +105,6 @@ export default function Timeline() {
           </AnimatePresence>
         </div>
 
-        {/* TEXT + METADATA */}
         <AnimatePresence mode="wait">
           <motion.div
             key={current.id}
@@ -127,7 +124,6 @@ export default function Timeline() {
           </motion.div>
         </AnimatePresence>
 
-        {/* BUTTONS */}
         <div className="timeline-controls">
           <button onClick={goPrev}>←</button>
           <button onClick={goNext}>→</button>
