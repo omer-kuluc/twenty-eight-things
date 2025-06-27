@@ -361,6 +361,115 @@ a {
   }
 }
 
+/*ViewChoice-mobile-start*/
+.view-choice-container {
+  min-height: 100vh;
+  background: black;
+  color: white;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+  overflow: hidden;
+  text-align: center;
+  flex-direction: column;
+}
+
+/* ⏳ Intro Animasyon */
+.intro-loader {
+  position: absolute;
+  inset: 0;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.intro-circle {
+  width: 90px;
+  height: 90px;
+  border: 3px solid white;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.intro-text {
+  font-size: 1.5rem;
+  color: white;
+  opacity: 0.8;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ✍️ Content */
+.text-line {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.view-buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.view-buttons button {
+  background: white;
+  color: black;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.view-buttons button:hover {
+  transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ViewChoice-mobile-end*/
+
+
 /*show-style-page-start*/
 .show-style-container {
   display: flex;
