@@ -1,13 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { DataContext } from '../App';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Timeline() {
   const { data } = useContext(DataContext);
   const [index, setIndex] = useState(0);
+  const [yearDisplay, setYearDisplay] = useState(null);
   const [direction, setDirection] = useState(1);
+  const intervalRef = useRef(null);
 
-  // Eğer data yüklenmemişse veya boşsa, yükleniyor mesajı ver
+  useEffect(() => {
+    if (data && data.length > 0) {
+      const currentYear = parseInt(data[index]['release-date']);
+      setYearDisplay(currentYear);
+    }
+  }, [data, index]);
+
   if (!data || data.length === 0) {
     return (
       <div className="timeline-wrapper">
@@ -17,44 +25,56 @@ export default function Timeline() {
   }
 
   const current = data[index];
-  const currentYear = parseInt(current?.['release-date']);
+  const currentYear = parseInt(current['release-date']);
   const text = current?.type === 'song' ? current.lyric : current?.line;
 
+  const animateYears = (from, to, onComplete) => {
+    clearInterval(intervalRef.current);
+    const step = from < to ? 1 : -1;
+
+    if (from === to) {
+      onComplete();
+      return;
+    }
+
+    let years = [];
+    for (let y = from + step; step > 0 ? y <= to : y >= to; y += step) {
+      years.push(y);
+    }
+
+    let i = 0;
+    intervalRef.current = setInterval(() => {
+      if (i < years.length) {
+        setDirection(step);
+        setYearDisplay(years[i]);
+        i++;
+      } else {
+        clearInterval(intervalRef.current);
+        onComplete();
+      }
+    }, 50);
+  };
+
   const handleNavigation = (newIndex) => {
-    const newYear = parseInt(data[newIndex]?.['release-date']);
-    setDirection(newYear > currentYear ? 1 : -1);
-    setIndex(newIndex);
+    const nextYear = parseInt(data[newIndex]['release-date']);
+    animateYears(currentYear, nextYear, () => {
+      setIndex(newIndex);
+    });
   };
 
   const goNext = () => {
-    const nextIndex = (index + 1) % data.length;
-    handleNavigation(nextIndex);
+    const next = (index + 1) % data.length;
+    handleNavigation(next);
   };
 
   const goPrev = () => {
-    const prevIndex = (index - 1 + data.length) % data.length;
-    handleNavigation(prevIndex);
-  };
-
-  const getYearStyle = (i) => {
-    const offset = i - index;
-    const distance = Math.abs(offset);
-    const x = offset * 80;
-    const scale = 1 - distance * 0.1;
-    const opacity = 1 - distance * 0.3;
-    return {
-      x,
-      scale,
-      opacity,
-      position: 'absolute',
-      left: '50%',
-      top: 0,
-      translateX: '-50%',
-    };
+    const prev = (index - 1 + data.length) % data.length;
+    handleNavigation(prev);
   };
 
   return (
     <div className="timeline-wrapper">
+      {/* BACKGROUND */}
       <AnimatePresence mode="wait">
         <motion.div
           key={current.image}
@@ -67,49 +87,34 @@ export default function Timeline() {
         />
       </AnimatePresence>
 
-      <div className="timeline-overlay">
-        {/* YIL KAYDIRMALI BÖLÜM */}
-        <div className="timeline-year-slider" style={{ position: 'relative', height: '4rem', marginBottom: '2rem' }}>
-          <AnimatePresence initial={false} mode="wait">
-            {data.map((item, i) => {
-              const year = item['release-date'];
-              const style = getYearStyle(i);
-
-              if (Math.abs(i - index) > 2) return null;
-
-              return (
-                <motion.div
-                  key={i}
-                  className="timeline-year"
-                  initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
-                  animate={style}
-                  exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-                  transition={{ duration: 0.5 }}
-                  style={{
-                    fontSize: i === index ? '2.5rem' : '1.5rem',
-                    fontWeight: i === index ? 'bold' : 'normal',
-                    color: 'white',
-                    position: 'absolute',
-                    left: `calc(50% + ${style.x}px)`,
-                    top: 0,
-                    opacity: style.opacity,
-                    transform: `translateX(-50%) scale(${style.scale})`,
-                    pointerEvents: 'none',
-                  }}
-                >
-                  {year}
-                </motion.div>
-              );
-            })}
+      {/* OVERLAY */}
+      <div className="timeline-content">
+        {/* YEAR SLIDER */}
+        <div className="timeline-year-slider">
+          <AnimatePresence mode="popLayout">
+            {yearDisplay && (
+              <motion.div
+                key={yearDisplay}
+                className="timeline-year"
+                initial={{ x: direction > 0 ? 100 : -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: direction > 0 ? -100 : 100, opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {yearDisplay}
+              </motion.div>
+            )}
           </AnimatePresence>
         </div>
 
+        {/* TEXT + METADATA */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            key={current.id}
+            className="timeline-slide"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
           >
             <h2>{current.title}</h2>
@@ -122,6 +127,7 @@ export default function Timeline() {
           </motion.div>
         </AnimatePresence>
 
+        {/* BUTTONS */}
         <div className="timeline-controls">
           <button onClick={goPrev}>←</button>
           <button onClick={goNext}>→</button>

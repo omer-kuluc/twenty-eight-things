@@ -40,17 +40,17 @@ export default function MainPage() {
   const { data } = useContext(DataContext);
   const [countdownFinished, setCountdownFinished] = useState(false);
   const [introFadeOut, setIntroFadeOut] = useState(false);
-
   const introLines = [
-    "28 is one of the 51 known perfect numbers.",
+    "28 is one of the 51 known perfect numbers. (6, 28, 496, 8128, 33550336)",
     "Perfect number = A number whose divisors (excluding itself) add up to the number itself",
   ];
 
   const explanationLines = [
-    "For 28 to be 'perfect', it needs these 5 numbers just as they need 28 to be seen as part of something 'perfect'..",
-    "Numbers are just symbols; you can think of anything you care about in life in place of numbers.",
-    "Hope you live a life where your contribution to something 'perfect' is valued, and you appreciate the things that contribute to your own 'perfection'.",
-    "’Cause people may forget. Hope you don’t.."
+    "For 28 to be 'perfect', it needs these 5 numbers, just as they need 28 to be seen as part of something 'perfect'.",
+    "Digits and perfection are nothing more than symbols created by humans.",
+    "There are many things that you make better than they are, or that make you better than you are.",
+    "Most people overlook or forget this in life’s rush.",
+    "Hope you’re someone who sees or remembers.",
   ];
 
   const {
