@@ -480,58 +480,70 @@ a {
 
 
 /*show-style-page-end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*gallery-mobile-start*/
 
-.gallery-fullpage-wrapper {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.gallery-fullpage-card {
-  scroll-snap-align: start;
+.gallery-scroll-wrapper {
   height: 100vh;
   width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: hidden;
   position: relative;
+}
+
+.gallery-scroll-inner {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.gallery-scroll-section {
+  height: 100vh;
+  width: 100%;
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
   justify-content: center;
-  transition: background-image 0.6s ease-in-out;
+  transition: background 1s ease-in-out;
 }
 
-.gallery-fullpage-overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
+.gallery-scroll-overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 40px;
   color: white;
-  padding: 25px;
-  border-radius: 15px;
-  max-width: 85%;
-  text-align: center;
+  width: 100%;
 }
 
-.gallery-fullpage-overlay h2 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  font-weight: 700;
+.gallery-scroll-overlay h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-.gallery-fullpage-overlay p {
+.gallery-lyric span,
+.gallery-line span {
   font-size: 1rem;
-  margin: 6px 0;
-}
-
-.gallery-fullpage-text span {
-  font-size: 0.95rem;
+  font-weight: 400;
   line-height: 1.5;
-  display: block;
-  font-weight: 500;
 }
 
 /*gallery-mobile-end*/
+
 
 
 
