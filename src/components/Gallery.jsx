@@ -4,11 +4,10 @@ import { DataContext } from '../App';
 export default function Gallery() {
   const { data } = useContext(DataContext);
 
-  // Loop için başa ve sona fazladan item ekle
   const loopedData = [
-    ...data.slice(-3),  // sondan 3 taneyi başa ekle
+    ...data.slice(-3),
     ...data,
-    ...data.slice(0, 3) // baştan 3 taneyi sona ekle
+    ...data.slice(0, 3)
   ];
 
   const [currentIndex, setCurrentIndex] = useState(3);
@@ -19,7 +18,9 @@ export default function Gallery() {
 
     setIsAnimating(true);
 
-    let nextIndex = direction === 'down' ? currentIndex + 1 : currentIndex - 1;
+    const nextIndex = direction === 'down'
+      ? currentIndex + 1
+      : currentIndex - 1;
 
     setCurrentIndex(nextIndex);
   };
@@ -27,29 +28,28 @@ export default function Gallery() {
   // Döngü kontrolü
   useEffect(() => {
     if (currentIndex === loopedData.length - 3) {
-      // sona ulaştık → ani sıçrama olmadan başa al
       setTimeout(() => {
         setIsAnimating(false);
         setCurrentIndex(3);
       }, 500);
     } else if (currentIndex === 2) {
-      // başa geri sardık
       setTimeout(() => {
         setIsAnimating(false);
         setCurrentIndex(loopedData.length - 4);
       }, 500);
     } else {
-      // normal scroll
       setTimeout(() => {
         setIsAnimating(false);
       }, 500);
     }
   }, [currentIndex, loopedData.length]);
 
-  // Mouse wheel
+  // Wheel scroll
   useEffect(() => {
     const handleWheel = (e) => {
       e.preventDefault();
+      if (isAnimating) return;
+
       handleScroll(e.deltaY > 0 ? 'down' : 'up');
     };
 
@@ -64,18 +64,21 @@ export default function Gallery() {
   // Touch swipe
   useEffect(() => {
     let touchStartY = 0;
-    let touchMoveY = 0;
 
     const handleTouchStart = (e) => {
       touchStartY = e.touches[0].clientY;
     };
 
     const handleTouchMove = (e) => {
-      touchMoveY = e.touches[0].clientY;
+      e.preventDefault();
     };
 
-    const handleTouchEnd = () => {
-      const deltaY = touchStartY - touchMoveY;
+    const handleTouchEnd = (e) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
+
+      if (isAnimating) return;
+
       if (Math.abs(deltaY) > 50) {
         handleScroll(deltaY > 0 ? 'down' : 'up');
       }
@@ -83,7 +86,7 @@ export default function Gallery() {
 
     const container = document.querySelector('.gallery-scroll-wrapper');
     container?.addEventListener('touchstart', handleTouchStart, { passive: true });
-    container?.addEventListener('touchmove', handleTouchMove, { passive: true });
+    container?.addEventListener('touchmove', handleTouchMove, { passive: false });
     container?.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     return () => {
@@ -92,7 +95,6 @@ export default function Gallery() {
       container?.removeEventListener('touchend', handleTouchEnd);
     };
   }, [isAnimating, currentIndex]);
-
 
   return (
     <div className="gallery-scroll-wrapper">
@@ -104,7 +106,6 @@ export default function Gallery() {
           transition: isAnimating ? 'transform 0.5s ease-in-out' : 'none',
         }}
       >
-
         {loopedData.map((item, index) => (
           <section
             key={`${item.id}-${index}`}
@@ -132,7 +133,7 @@ export default function Gallery() {
                   <div className="gallery-line">
                     <p>Line :</p>
                     {item.line.split('\n').map((line, i) => (
-                      <span key={i}> {line}<br /></span>
+                      <span key={i}>{line}<br /></span>
                     ))}
                   </div>
                 </>
