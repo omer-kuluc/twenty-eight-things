@@ -11,6 +11,8 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Courier New', monospace;
+
 }
 
 html,
@@ -218,7 +220,6 @@ h6 {
 
 
 .typing-line {
-  font-family: monospace;
   white-space: pre-wrap;
   word-break: break-word;
   margin-bottom: 0.7rem;
@@ -264,7 +265,6 @@ a {
   text-align: center;
   margin-bottom: 20px;
   color: white;
-  font-family: monospace;
 }
 
 
@@ -278,7 +278,6 @@ a {
 }
 
 .divisor {
-  font-family: monospace;
   font-size: 1rem;
   padding: 6px 10px;
   border-radius: 8px;
@@ -373,7 +372,6 @@ a {
   min-height: 100vh;
   background: black;
   color: white;
-  font-family: monospace;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -489,10 +487,44 @@ a {
 /*show-style-page-end*/
 
 
+/*topnav-mobile-start*/
+/* App.css'e ekle */
+.top-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.nav-button {
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.nav-button:hover {
+  opacity: 1;
+}
+
+.nav-center {
+  text-align: center;
+  flex: 1;
+  color: #fff;
+  font-weight: bold;
+}
 
 
 
-
+/*topnav-mobile-end*/
 
 
 
@@ -545,7 +577,6 @@ a {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   opacity: 0.4;
   transition: opacity 0.3s ease;
-  cursor: pointer;
 }
 
 .gallery-scroll-overlay:hover,
@@ -720,7 +751,6 @@ a {
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
-  font-family: 'Courier New', monospace;
   background-color: black;
   color: white;
   display: flex;

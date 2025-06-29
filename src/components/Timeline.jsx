@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { DataContext } from '../App';
 import { AnimatePresence, motion } from 'framer-motion';
+import TopNav from './TopNav';
 
 export default function Timeline() {
   const { data } = useContext(DataContext);
@@ -75,6 +76,7 @@ export default function Timeline() {
 
   return (
     <div className="timeline-wrapper">
+      <TopNav currentView="timeline" />
       <AnimatePresence mode="wait">
         <motion.div
           key={current.image}

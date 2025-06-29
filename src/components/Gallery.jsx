@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { DataContext } from '../App';
+import TopNav from './TopNav';
 
 export default function Gallery() {
   const { data } = useContext(DataContext);
@@ -124,6 +125,7 @@ export default function Gallery() {
 
   return (
     <div className="gallery-scroll-wrapper">
+      <TopNav currentView="gallery" /> {/* 🔼 ekledik */}
       <div
         ref={innerRef}
         className="gallery-scroll-inner"

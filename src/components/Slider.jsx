@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { DataContext } from '../App';
 import React from 'react';
+import TopNav from './TopNav';
 
 export default function Slider() {
   const { data } = useContext(DataContext);
@@ -16,6 +17,7 @@ export default function Slider() {
 
   return (
     <div className="slider-wrapper">
+      <TopNav currentView="slider" />
       {/* FULLSCREEN BACKGROUND IMAGE */}
       <div
         className="slider-full-bg"
