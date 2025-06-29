@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { DataContext } from '../App';
 
 export default function Gallery() {
@@ -12,6 +12,8 @@ export default function Gallery() {
 
   const [currentIndex, setCurrentIndex] = useState(3);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [disableTransition, setDisableTransition] = useState(false);
+  const innerRef = useRef(null);
 
   const handleScroll = (direction) => {
     if (isAnimating) return;
@@ -25,24 +27,48 @@ export default function Gallery() {
     setCurrentIndex(nextIndex);
   };
 
-  // Döngü kontrolü
   useEffect(() => {
+    let timeout;
+
     if (currentIndex === loopedData.length - 3) {
-      setTimeout(() => {
-        setIsAnimating(false);
-        setCurrentIndex(3);
+      // sona ulaştık → başa döneceğiz
+      timeout = setTimeout(() => {
+        jumpToIndex(3);
       }, 500);
     } else if (currentIndex === 2) {
-      setTimeout(() => {
-        setIsAnimating(false);
-        setCurrentIndex(loopedData.length - 4);
+      // başa ulaştık → sona döneceğiz
+      timeout = setTimeout(() => {
+        jumpToIndex(loopedData.length - 4);
       }, 500);
     } else {
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         setIsAnimating(false);
       }, 500);
     }
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [currentIndex, loopedData.length]);
+
+  const jumpToIndex = (index) => {
+    if (!innerRef.current) return;
+
+    // 1. Transition kapat
+    setDisableTransition(true);
+
+    // 2. transform → yeni konuma ani olarak git
+    innerRef.current.style.transform = `translateY(-${index * 100}vh)`;
+
+    // 3. Çift requestAnimationFrame → Transition tekrar açılacak frame'i garantile
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setDisableTransition(false);
+        setCurrentIndex(index);
+        setIsAnimating(false);
+      });
+    });
+  };
 
   // Wheel scroll
   useEffect(() => {
@@ -99,11 +125,16 @@ export default function Gallery() {
   return (
     <div className="gallery-scroll-wrapper">
       <div
+        ref={innerRef}
         className="gallery-scroll-inner"
         style={{
           height: `${loopedData.length * 100}vh`,
           transform: `translateY(-${currentIndex * 100}vh)`,
-          transition: isAnimating ? 'transform 0.5s ease-in-out' : 'none',
+          transition: disableTransition
+            ? 'none'
+            : isAnimating
+              ? 'transform 0.5s ease-in-out'
+              : 'none',
         }}
       >
         {loopedData.map((item, index) => (
