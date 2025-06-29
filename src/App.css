@@ -525,32 +525,52 @@ a {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+
+  /* ortalama */
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+
   transition: background 1s ease-in-out;
 }
 
 .gallery-scroll-overlay {
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  color: white;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: left;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px 40px;
+  color: #fff;
+  max-width: 700px;
+  width: 90%;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-scroll-overlay:hover,
+.gallery-scroll-overlay:focus,
+.gallery-scroll-overlay:active {
+  opacity: 0.8;
 }
 
 .gallery-scroll-overlay h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.gallery-scroll-overlay p {
+  font-size: 1.2rem;
+  margin: 10px 0;
 }
 
 .gallery-lyric span,
 .gallery-line span {
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
 }
+
 
 /*gallery-mobile-end*/
 
