@@ -149,6 +149,8 @@ export default function Gallery() {
           >
             <div className="gallery-scroll-overlay">
               <h2>{item.title}</h2>
+              <i>Release date : {item["release-date"]}</i>
+
               {item.type === 'song' ? (
                 <>
                   <p><strong>Singer:</strong> {item.singer}</p>

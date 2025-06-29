@@ -117,11 +117,18 @@ export default function Timeline() {
             transition={{ duration: 0.5 }}
           >
             <h2>{current.title}</h2>
-            <p className="timeline-meta">
-              {current.type === 'song'
-                ? `🎵 ${current.singer}`
-                : `🎬 ${current.director}`}
-            </p>
+            <div className="timeline-meta">
+              {current.type === 'song' && (
+                <p>🎵 {current.singer}</p>
+              )}
+              {current.type === 'movie' && (
+                <>
+                  <p>🎬 {current.director}</p>
+                  <p>⭐ {current.stars}</p>
+                </>
+              )}
+            </div>
+
             <p className="timeline-text">{text}</p>
           </motion.div>
         </AnimatePresence>
