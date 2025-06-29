@@ -64,14 +64,18 @@ export default function Gallery() {
   // Touch swipe
   useEffect(() => {
     let touchStartY = 0;
+    let touchMoveY = 0;
 
     const handleTouchStart = (e) => {
       touchStartY = e.touches[0].clientY;
     };
 
-    const handleTouchEnd = (e) => {
-      const deltaY = touchStartY - e.changedTouches[0].clientY;
+    const handleTouchMove = (e) => {
+      touchMoveY = e.touches[0].clientY;
+    };
 
+    const handleTouchEnd = () => {
+      const deltaY = touchStartY - touchMoveY;
       if (Math.abs(deltaY) > 50) {
         handleScroll(deltaY > 0 ? 'down' : 'up');
       }
@@ -79,23 +83,28 @@ export default function Gallery() {
 
     const container = document.querySelector('.gallery-scroll-wrapper');
     container?.addEventListener('touchstart', handleTouchStart, { passive: true });
+    container?.addEventListener('touchmove', handleTouchMove, { passive: true });
     container?.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     return () => {
       container?.removeEventListener('touchstart', handleTouchStart);
+      container?.removeEventListener('touchmove', handleTouchMove);
       container?.removeEventListener('touchend', handleTouchEnd);
     };
   }, [isAnimating, currentIndex]);
+
 
   return (
     <div className="gallery-scroll-wrapper">
       <div
         className="gallery-scroll-inner"
         style={{
+          height: `${loopedData.length * 100}vh`,
           transform: `translateY(-${currentIndex * 100}vh)`,
           transition: isAnimating ? 'transform 0.5s ease-in-out' : 'none',
         }}
       >
+
         {loopedData.map((item, index) => (
           <section
             key={`${item.id}-${index}`}
@@ -109,23 +118,23 @@ export default function Gallery() {
               {item.type === 'song' ? (
                 <>
                   <p><strong>Singer:</strong> {item.singer}</p>
-                  <p className="gallery-lyric">
+                  <div className="gallery-lyric">
                     <p>Lyric :</p>
                     {item.lyric.split('\n').map((line, i) => (
                       <span key={i}>{line}<br /></span>
                     ))}
-                  </p>
+                  </div>
                 </>
               ) : item.type === 'movie' ? (
                 <>
                   <p><strong>Director:</strong> {item.director}</p>
                   <p><strong>Stars:</strong> {item.stars}</p>
-                  <p className="gallery-line">
+                  <div className="gallery-line">
                     <p>Line :</p>
                     {item.line.split('\n').map((line, i) => (
                       <span key={i}> {line}<br /></span>
                     ))}
-                  </p>
+                  </div>
                 </>
               ) : null}
             </div>
