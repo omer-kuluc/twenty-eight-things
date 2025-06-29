@@ -53,7 +53,7 @@ export default function Timeline() {
         clearInterval(intervalRef.current);
         onComplete();
       }
-    }, 20); // geçiş hızı
+    }, 25); // geçiş hızı
   };
 
   const handleNavigation = (newIndex) => {
