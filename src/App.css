@@ -695,6 +695,14 @@ a {
   position: relative;
   z-index: 2;
   padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  blockquote {
+    margin-top: 10px;
+    font-style: italic;
+  }
 }
 
 
@@ -973,9 +981,7 @@ a {
     flex-direction: column;
     gap: 15px;
 
-    blockquote {
-      font-style: italic;
-    }
+
   }
 
   /*slider-tablet-end*/
