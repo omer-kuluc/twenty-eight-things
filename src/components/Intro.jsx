@@ -15,7 +15,7 @@ export default function Intro() {
       setIntroFinished(true);
       const done = setTimeout(() => {
         window.location.hash = "#/";
-      }, 50);
+      }, 250);
       return () => clearTimeout(done);
     }
   }, [index]);

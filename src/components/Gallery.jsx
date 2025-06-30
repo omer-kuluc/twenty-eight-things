@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { DataContext } from '../App';
 import TopNav from './TopNav';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function Gallery() {
   const { data } = useContext(DataContext);
@@ -114,47 +114,40 @@ export default function Gallery() {
               backgroundImage: `url(${item.image})`,
             }}
           >
-            <AnimatePresence mode="wait">
-              {index === currentIndex && (
-                <motion.div
-                  key={index}
-                  className="gallery-scroll-overlay"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.2 }}
-                  exit={{ opacity: 0 }}
-                  whileHover={{ opacity: 0.8 }}
-                  whileTap={{ opacity: 0.6 }}
-                  transition={{ duration: 0.5 }}
-                >
+            <motion.div
+              className="gallery-scroll-overlay"
+              initial={false}
+              animate={{ opacity: 0.2 }}
+              whileHover={{ opacity: 0.8 }}
+              whileTap={{ opacity: 0.6 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h5>{item.title}</h5>
+              <i>Release date : {item["release-date"]}</i>
 
-                  <h5>{item.title}</h5>
-                  <i>Release date : {item["release-date"]}</i>
-
-                  {item.type === 'song' ? (
-                    <>
-                      <p><strong>Singer:</strong> {item.singer}</p>
-                      <div className="gallery-lyric">
-                        <p>Lyric :</p>
-                        {item.lyric.split('\n').map((line, i) => (
-                          <span key={i}>{line}<br /></span>
-                        ))}
-                      </div>
-                    </>
-                  ) : item.type === 'movie' ? (
-                    <>
-                      <p><strong>Director:</strong> {item.director}</p>
-                      <p><strong>Stars:</strong> {item.stars}</p>
-                      <div className="gallery-line">
-                        <p>Line :</p>
-                        {item.line.split('\n').map((line, i) => (
-                          <span key={i}>{line}<br /></span>
-                        ))}
-                      </div>
-                    </>
-                  ) : null}
-                </motion.div>
-              )}
-            </AnimatePresence>
+              {item.type === 'song' ? (
+                <>
+                  <p><strong>Singer:</strong> {item.singer}</p>
+                  <div className="gallery-lyric">
+                    <p>Lyric :</p>
+                    {item.lyric.split('\n').map((line, i) => (
+                      <span key={i}>{line}<br /></span>
+                    ))}
+                  </div>
+                </>
+              ) : item.type === 'movie' ? (
+                <>
+                  <p><strong>Director:</strong> {item.director}</p>
+                  <p><strong>Stars:</strong> {item.stars}</p>
+                  <div className="gallery-line">
+                    <p>Line :</p>
+                    {item.line.split('\n').map((line, i) => (
+                      <span key={i}>{line}<br /></span>
+                    ))}
+                  </div>
+                </>
+              ) : null}
+            </motion.div>
           </section>
         ))}
       </div>
