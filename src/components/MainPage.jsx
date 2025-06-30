@@ -17,7 +17,7 @@ export default function MainPage() {
 
   const explanationLines = [
     "For 28 to be 'perfect', it needs these 5 numbers, just as they need 28 to be seen as part of something 'perfect'.",
-    "Digits and perfection are nothing more than symbols created by humans.",
+    "Actually, Digits and perfection are nothing more than symbols created by humans.",
     "There are many things that you make better than they are, or that make you better than you are.",
     "Most people overlook or forget this in life’s rush.",
     "Hope you’re someone who sees or remembers.",
