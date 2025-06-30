@@ -9,37 +9,76 @@ import useTypingLines from "./UseTypingLine";
 
 const perfectNumbers = ["33550336", "8128", "496", "28", "6"];
 
-function CountdownCircle({ onComplete, finished }) {
+function PerfectNumberIntro({ onComplete }) {
+  const numbers = ["33550336", "8128", "496", "28", "6"];
+  const [index, setIndex] = useState(0);
+
   useEffect(() => {
-    const totalDuration = 4000;
-    const timer = setTimeout(() => {
-      onComplete();
-    }, totalDuration);
-    return () => clearTimeout(timer);
-  }, [onComplete]);
+    if (index < numbers.length) {
+      const timer = setTimeout(() => setIndex((i) => i + 1), 1800);
+      return () => clearTimeout(timer);
+    } else if (index === numbers.length) {
+      const done = setTimeout(() => onComplete(), 250);
+      return () => clearTimeout(done);
+    }
+  }, [index]);
+
+  const current = index < numbers.length ? numbers[index] : null;
+  const progress =
+    index <= numbers.length ? (index / numbers.length) * 100 : 100;
 
   return (
-    <div className={`box ${finished ? "intro-finished" : ""}`}>
-      <div className="inner-box">
-        <div className="circle circle1"></div>
-        <div className="circle circle2"></div>
-        <div className="niddle"></div>
-        <div className="number">
-          <div>33550336</div>
-          <div>8128</div>
-          <div>496</div>
-          <div>28</div>
-          <div>6</div>
+    <div className="circle-intro-container">
+      <div className="circle-wrapper">
+        <svg className="progress-ring" width="220" height="220">
+          <circle
+            className="progress-ring-bg"
+            cx="110"
+            cy="110"
+            r="100"
+            strokeWidth="8"
+          />
+          <circle
+            className="progress-ring-fill"
+            cx="110"
+            cy="110"
+            r="100"
+            strokeWidth="8"
+            strokeDasharray={2 * Math.PI * 100}
+            strokeDashoffset={(1 - progress / 100) * 2 * Math.PI * 100}
+          />
+        </svg>
+
+        <div className="number-center">
+          <AnimatePresence mode="wait">
+            {current && (
+              <motion.div
+                key={current}
+                className="number-inside"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.1 }}
+                transition={{ duration: 0.6 }}
+              >
+                {current}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>
+
   );
 }
 
+
+
 export default function MainPage() {
   const { data } = useContext(DataContext);
+
   const [countdownFinished, setCountdownFinished] = useState(false);
-  const [introFadeOut, setIntroFadeOut] = useState(false);
+  const [showGlitch, setShowGlitch] = useState(false);
+
   const introLines = [
     "28 is one of the 51 known perfect numbers. (6 - 28 - 496 - 8128 - 33,550,336 ...)",
     "Perfect number = A number whose divisors (excluding itself) add up to the number itself",
@@ -59,7 +98,11 @@ export default function MainPage() {
     showAll
   } = useTypingLines(introLines);
 
-  const [colorState, setColorState] = useState({ yellow: false, blue: false, green: false });
+  const [colorState, setColorState] = useState({
+    yellow: false,
+    blue: false,
+    green: false
+  });
   const [animationStarted, setAnimationStarted] = useState(false);
   const [showExplanations, setShowExplanations] = useState(false);
   const [explanationStep, setExplanationStep] = useState(0);
@@ -93,25 +136,29 @@ export default function MainPage() {
   return (
     <div className="main-page-container">
       <AnimatePresence>
-        {!countdownFinished && !introFadeOut && (
+        {!countdownFinished && (
           <motion.div
             key="intro"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            <CountdownCircle
+            <PerfectNumberIntro
               onComplete={() => {
+                setShowGlitch(true);
                 setTimeout(() => {
-                  setIntroFadeOut(true);
-                  setTimeout(() => setCountdownFinished(true), 350);
-                }, 0);
+                  setShowGlitch(false);
+                  setCountdownFinished(true);
+                }, 2000); // glitch süresi
               }}
-              finished={countdownFinished}
             />
           </motion.div>
         )}
       </AnimatePresence>
+
+      {showGlitch && (
+        <div className="glitch-overlay"></div>
+      )}
 
       {countdownFinished && (
         <motion.div
@@ -124,7 +171,12 @@ export default function MainPage() {
 
           {introLines.map((line, i) =>
             i === currentLine ? (
-              <TypingLine key={i} text={line} onComplete={handleComplete} showCursor={!showAll} />
+              <TypingLine
+                key={i}
+                text={line}
+                onComplete={handleComplete}
+                showCursor={!showAll}
+              />
             ) : i < currentLine ? (
               <p key={i} className="typing-line">{line}</p>
             ) : null
@@ -133,7 +185,8 @@ export default function MainPage() {
           {showAll && (
             <div className="result-section">
               <motion.p
-                className={`divisor ${colorState.green ? "green-28" : "delayed-color"}`}
+                className={`divisor ${colorState.green ? "green-28" : "delayed-color"
+                  }`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -189,7 +242,7 @@ export default function MainPage() {
         </motion.div>
       )}
 
-      {(showAll && explanationStep === explanationLines.length) && (
+      {showAll && explanationStep === explanationLines.length && (
         <div className="other-pages-area">
           <a href="#/view-choice">
             <h2 data-text="&nbsp; Continue &nbsp;">&nbsp; Continue &nbsp;</h2>
