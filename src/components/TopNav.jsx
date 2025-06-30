@@ -26,6 +26,7 @@ export default function TopNav({ currentView }) {
       <a className="nav-button home" href="#/">
         <img src="/data/img/home-icon.svg" alt="" />
       </a>
+      <p><i>28 THINGS</i></p>
 
       {isMobile ? (
         <>
