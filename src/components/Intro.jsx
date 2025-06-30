@@ -9,7 +9,7 @@ export default function Intro() {
 
   useEffect(() => {
     if (index < numbers.length) {
-      const timer = setTimeout(() => setIndex((i) => i + 1), 1800);
+      const timer = setTimeout(() => setIndex((i) => i + 1), 2200);
       return () => clearTimeout(timer);
     } else if (index === numbers.length) {
       setIntroFinished(true);

@@ -850,7 +850,7 @@ a {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .timeline-controls button {
@@ -910,14 +910,7 @@ a {
 
   /*intro-tablet-start*/
 
-  .circle-wrapper {
-    width: 300px;
-    height: 300px;
-  }
 
-  .number-inside {
-    font-size: 3.8rem;
-  }
 
   /*intro-tablet-end*/
 
