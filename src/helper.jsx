@@ -1,4 +1,5 @@
 import Gallery from './components/Gallery'
+import Intro from './components/Intro'
 import MainPage from './components/MainPage'
 import Movies from './components/Movies'
 import Slider from './components/Slider'
@@ -10,6 +11,10 @@ const routers = [
   {
     url: '/',
     component: <MainPage />
+  },
+  {
+    url: '/intro',
+    component: <Intro />
   },
   {
     url: '/movies',

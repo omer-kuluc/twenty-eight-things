@@ -66,6 +66,8 @@ h6 {
   isolation: isolate;
 }
 
+
+
 /*MainPage-mobile-start*/
 
 
@@ -412,31 +414,123 @@ a {
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgb(137, 133, 133);
   backdrop-filter: blur(6px);
-  color: white;
+  color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
   font-size: 1.1rem;
+  align-items: center;
+
+  img {
+    width: 25px;
+  }
 }
 
 .nav-button {
   text-decoration: none;
-  color: #fff;
+  color: #000;
   opacity: 0.7;
   transition: opacity 0.2s;
 }
 
 .nav-button:hover {
   opacity: 1;
+  color: #fff;
+
 }
 
 .nav-center {
   text-align: center;
   flex: 1;
-  color: #fff;
+  color: #432e2e;
   font-weight: bold;
 }
 
+
+.top-nav .nav-button.home {
+  font-weight: bold;
+  color: #ffcc00;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+
+/*hamburger-menu*/
+/* Hamburger ikon stil */
+.hamburger-icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+/* Mobil menü kutusu */
+.mobile-menu {
+  position: absolute;
+  top: 85%;
+  right: 5%;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid #444;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+  width: 250px;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.mobile-menu a:hover {
+  color: #ffcc00;
+}
+
+.hamburger-toggle {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.active-mobile-link {
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+.mobile-menu-link {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.mobile-menu-link:hover {
+  color: #ffcc00;
+}
+
+.mobile-menu-link.active {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+
+.nav-button.active {
+  color: #ffcc00;
+  text-decoration: underline;
+  opacity: 1;
+}
+
+.nav-button.center {
+  text-align: center;
+  flex: 1;
+  font-weight: bold;
+  cursor: auto;
+}
 
 
 /*topnav-mobile-end*/
@@ -460,10 +554,12 @@ a {
 }
 
 .gallery-scroll-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   will-change: transform;
-
 }
 
 .gallery-scroll-section {
@@ -791,11 +887,18 @@ a {
 
 
 @media (width > 768px) {
+
+
+
   .gallery-card-container {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 
   }
 
+
+  /*intro-tablet-start*/
+
+  /*intro-tablet-end*/
 
 
   /*slider-tablet-start*/
@@ -822,6 +925,7 @@ a {
 }
 
 @media (width > 1110px) {
+
 
 
   /*slider-desktop-start*/

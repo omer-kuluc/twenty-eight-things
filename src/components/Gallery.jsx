@@ -130,7 +130,6 @@ export default function Gallery() {
         ref={innerRef}
         className="gallery-scroll-inner"
         style={{
-          height: `${loopedData.length * 100}vh`,
           transform: `translateY(-${currentIndex * 100}vh)`,
           transition: disableTransition
             ? 'none'

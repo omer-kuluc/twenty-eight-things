@@ -1,13 +1,14 @@
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react';
 import { getPage } from './helper';
-import './App.css'
-import React from 'react'
+import './App.css';
+import React from 'react';
 
 export const DataContext = createContext(null);
 
 function App() {
   const [data, setData] = useState([]);
-  const [route, setRoute] = useState(location.hash.substring(1) || '/');
+  const [route, setRoute] = useState(location.hash.substring(1) || '/intro');
+  const [introFinished, setIntroFinished] = useState(false);
 
   useEffect(() => {
     async function getData() {
@@ -19,8 +20,7 @@ function App() {
 
   useEffect(() => {
     function handleHashChange() {
-      const current = location.hash.substring(1) || '/';
-      console.log("Current route:", current); // buraya bak
+      const current = location.hash.substring(1) || '/intro';
       setRoute(current);
     }
 
@@ -28,8 +28,15 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // 🚨 Önemli çözüm: Eğer ana sayfaya geldi ama intro bitmemişse, intro'ya yönlendir
+  useEffect(() => {
+    if (location.hash === '#/' && !introFinished) {
+      window.location.hash = '#/intro';
+    }
+  }, [introFinished]);
+
   return (
-    <DataContext.Provider value={{ data, setData }}>
+    <DataContext.Provider value={{ data, setData, introFinished, setIntroFinished }}>
       {getPage(route)}
     </DataContext.Provider>
   );
