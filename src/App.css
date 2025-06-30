@@ -619,8 +619,8 @@ a {
 
 .gallery-lyric span,
 .gallery-line span {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 0.8rem;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -694,7 +694,7 @@ a {
 .slider-card .card-content {
   position: relative;
   z-index: 2;
-  padding: 20px;
+  padding: 5px 10px;
 }
 
 
@@ -824,10 +824,10 @@ a {
 }
 
 .timeline-slide {
-  position: relative;
-  width: 100%;
-  z-index: 3;
   min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .timeline-meta {
@@ -921,11 +921,37 @@ a {
 
   /*top-nav-tablet-end*/
 
+  /*gallery-tablet-start*/
+
+  .gallery-scroll-overlay h5 {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+    padding: 10px 15px;
+  }
+
+  .gallery-lyric span,
+  .gallery-line span {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  /*gallery-tablet-end*/
+
+
+
+
   /*slider-tablet-start*/
 
   .slider-card {
-    width: 420px;
+    width: 430px;
     height: 450px;
+  }
+
+
+  .slider-track {
+    height: 550px;
   }
 
   .slider-card.left {
@@ -936,8 +962,15 @@ a {
     transform: translateX(400px) scale(0.85);
   }
 
-  .slider-track {
-    height: 550px;
+  .slider-card .card-content {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    blockquote {
+      font-style: italic;
+    }
   }
 
   /*slider-tablet-end*/

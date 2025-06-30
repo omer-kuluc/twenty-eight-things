@@ -123,13 +123,13 @@ export default function Gallery() {
               transition={{ duration: 0.3 }}
             >
               <h5>{item.title}</h5>
-              <i>Release date : {item["release-date"]}</i>
+              <p><strong><i>Release date </i></strong>: {item["release-date"]}</p>
 
               {item.type === 'song' ? (
                 <>
                   <p><strong>Singer:</strong> {item.singer}</p>
                   <div className="gallery-lyric">
-                    <p>Lyric :</p>
+                    <br />
                     {item.lyric.split('\n').map((line, i) => (
                       <span key={i}>{line}<br /></span>
                     ))}
@@ -140,7 +140,7 @@ export default function Gallery() {
                   <p><strong>Director:</strong> {item.director}</p>
                   <p><strong>Stars:</strong> {item.stars}</p>
                   <div className="gallery-line">
-                    <p>Line :</p>
+                    <br />
                     {item.line.split('\n').map((line, i) => (
                       <span key={i}>{line}<br /></span>
                     ))}

@@ -1,12 +1,23 @@
-import { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { DataContext } from '../App';
-import React from 'react';
 import TopNav from './TopNav';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Slider() {
   const { data } = useContext(DataContext);
   const [centerIndex, setCenterIndex] = useState(0);
+
+  // VERİ YOKSA HİÇBİR ŞEY GÖSTERME (veya yükleniyor yazısı)
+  if (!data || data.length === 0) {
+    return (
+      <div className="slider-wrapper">
+        <TopNav currentView="slider" />
+        <div style={{ color: 'white', textAlign: 'center', marginTop: '2rem' }}>
+          Yükleniyor...
+        </div>
+      </div>
+    );
+  }
 
   const nextSlide = () => {
     setCenterIndex((prev) => (prev + 1) % data.length);
@@ -58,7 +69,6 @@ export default function Slider() {
                   <>
                     <p><strong>Singer:</strong> {item.singer}</p>
                     <blockquote>
-                      <p>Lyric :</p>
                       {item.lyric.split('\n').map((line, i) => (
                         <React.Fragment key={i}>
                           {line}
@@ -73,7 +83,6 @@ export default function Slider() {
                     <p><strong>Director:</strong> {item.director}</p>
                     <p><strong>Stars:</strong> {item.stars}</p>
                     <blockquote>
-                      <p>Line :</p>
                       {item.line.split('\n').map((line, i) => (
                         <React.Fragment key={i}>
                           {line}
