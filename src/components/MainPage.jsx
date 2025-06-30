@@ -11,8 +11,8 @@ export default function MainPage() {
   const [showGlitch, setShowGlitch] = useState(false);
 
   const introLines = [
-    "28 is one of the 51 known perfect numbers. (6 - 28 - 496 - 8128 - 33,550,336 ...)",
-    "Perfect number = A number whose divisors (excluding itself) add up to the number itself",
+    "28 is one of the 51 known perfect numbers. (6 - 28 - 496 - 8128 - 33,550,336...)",
+    "Perfect number = A number whose divisors (excluding itself) add up to the number itself.",
   ];
 
   const explanationLines = [
