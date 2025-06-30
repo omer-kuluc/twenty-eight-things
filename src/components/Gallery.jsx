@@ -117,9 +117,9 @@ export default function Gallery() {
             <motion.div
               className="gallery-scroll-overlay"
               initial={false}
-              animate={{ opacity: 0.2 }}
+              animate={{ opacity: 0.4 }}
               whileHover={{ opacity: 0.8 }}
-              whileTap={{ opacity: 0.6 }}
+              whileTap={{ opacity: 0.8 }}
               transition={{ duration: 0.3 }}
             >
               <h5>{item.title}</h5>

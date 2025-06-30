@@ -7,7 +7,7 @@ export default function TypingLine({ text, onComplete, showCursor = true }) {
     if (visibleChars < text.length) {
       const timeout = setTimeout(() => {
         setVisibleChars((prev) => prev + 1);
-      }, 1);
+      }, 25);
       return () => clearTimeout(timeout);
     } else {
       if (onComplete) {

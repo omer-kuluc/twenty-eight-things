@@ -619,8 +619,8 @@ a {
 
 .gallery-lyric span,
 .gallery-line span {
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  font-weight: bold;
   line-height: 1.6;
 }
 
@@ -901,11 +901,16 @@ a {
 @media (width > 768px) {
 
 
-
+  /* 
   .gallery-card-container {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 
+  } */
+
+  .divisor {
+    margin-block: 25px;
   }
+
 
 
   /*intro-tablet-start*/
