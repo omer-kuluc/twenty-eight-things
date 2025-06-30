@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { DataContext } from '../App';
 import React from 'react';
 import TopNav from './TopNav';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Slider() {
   const { data } = useContext(DataContext);
@@ -18,13 +19,21 @@ export default function Slider() {
   return (
     <div className="slider-wrapper">
       <TopNav currentView="slider" />
-      {/* FULLSCREEN BACKGROUND IMAGE */}
-      <div
-        className="slider-full-bg"
-        style={{
-          backgroundImage: `url(${data[centerIndex].image})`
-        }}
-      ></div>
+
+      {/* FADE GEÇİŞLİ FULLSCREEN BACKGROUND */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={data[centerIndex].image}
+          className="slider-full-bg"
+          style={{
+            backgroundImage: `url(${data[centerIndex].image})`
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6 }}
+        />
+      </AnimatePresence>
 
       <div className="slider-track">
         {data.map((item, index) => {

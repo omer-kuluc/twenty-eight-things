@@ -12,10 +12,10 @@ export default function Intro() {
       const timer = setTimeout(() => setIndex((i) => i + 1), 1800);
       return () => clearTimeout(timer);
     } else if (index === numbers.length) {
+      setIntroFinished(true);
       const done = setTimeout(() => {
-        setIntroFinished(true); // ✅ App düzeyinde flag'i işaretle
         window.location.hash = "#/";
-      }, 850);
+      }, 50);
       return () => clearTimeout(done);
     }
   }, [index]);

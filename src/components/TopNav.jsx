@@ -67,26 +67,26 @@ export default function TopNav({ currentView }) {
         </>
       ) : (
         <>
-          <a
-            className={`nav-button left ${currentView === left ? 'active' : ''}`}
-            href={`#/${left}`}
-          >
-            {left.toUpperCase()}
-          </a>
-
-          <a
-            className={`nav-button center ${views.includes(currentView) ? 'active' : ''}`}
-            href={`#/${currentView}`}
-          >
-            {currentView.toUpperCase()}
-          </a>
-
-          <a
-            className={`nav-button right ${currentView === right ? 'active' : ''}`}
-            href={`#/${right}`}
-          >
-            {right.toUpperCase()}
-          </a>
+          <div className="show-options">
+            <a
+              className={`nav-button left ${currentView === left ? 'active' : ''}`}
+              href={`#/${left}`}
+            >
+              {left.toUpperCase()}
+            </a>
+            <a
+              className={`nav-button center ${views.includes(currentView) ? 'active' : ''}`}
+              href={`#/${currentView}`}
+            >
+              {currentView.toUpperCase()}
+            </a>
+            <a
+              className={`nav-button right ${currentView === right ? 'active' : ''}`}
+              href={`#/${right}`}
+            >
+              {right.toUpperCase()}
+            </a>
+          </div>
         </>
       )}
     </div>

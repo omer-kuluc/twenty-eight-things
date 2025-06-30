@@ -1,7 +1,6 @@
 import Gallery from './components/Gallery'
 import Intro from './components/Intro'
 import MainPage from './components/MainPage'
-import Movies from './components/Movies'
 import Slider from './components/Slider'
 import Timeline from './components/Timeline'
 import ViewChoice from './components/ViewChoice'
@@ -16,10 +15,7 @@ const routers = [
     url: '/intro',
     component: <Intro />
   },
-  {
-    url: '/movies',
-    component: <Movies />
-  },
+
   {
     url: '/view-choice',
     component: <ViewChoice />

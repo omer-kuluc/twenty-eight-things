@@ -242,7 +242,6 @@ a {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 40px;
 }
 
 .other-pages-area h2 {
@@ -414,8 +413,8 @@ a {
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: rgb(137, 133, 133);
-  backdrop-filter: blur(6px);
+  background: rgba(137, 133, 133, 0.5);
+  /* 0.5 = %50 şeffaflık */
   color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
   font-size: 1.1rem;
@@ -530,6 +529,15 @@ a {
   flex: 1;
   font-weight: bold;
   cursor: auto;
+  margin-inline: auto;
+}
+
+
+
+.show-options {
+  margin-left: auto;
+  display: flex;
+  gap: 50px;
 }
 
 
@@ -579,7 +587,7 @@ a {
 
 .gallery-scroll-overlay {
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 30px 40px;
+  padding: 5px 10px;
   color: #fff;
   max-width: 700px;
   width: 90%;
@@ -593,11 +601,11 @@ a {
 .gallery-scroll-overlay:hover,
 .gallery-scroll-overlay:focus,
 .gallery-scroll-overlay:active {
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
-.gallery-scroll-overlay h2 {
-  font-size: 2.5rem;
+.gallery-scroll-overlay h5 {
+  font-size: 1.5rem;
 }
 
 .gallery-scroll-overlay p {
