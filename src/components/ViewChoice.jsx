@@ -67,9 +67,9 @@ export default function ViewChoice() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: lines.length * 0.4 + 0.3 }}
             >
-              <a href="#/gallery"><button>Gallery</button></a>
               <a href="#/slider"><button>Slider</button></a>
               <a href="#/timeline"><button>Timeline</button></a>
+              <a href="#/gallery"><button>Gallery</button></a>
             </motion.div>
           </motion.div>
         )}
